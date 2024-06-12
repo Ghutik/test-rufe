@@ -1,8 +1,8 @@
 # напиши здесь код основного приложения и первого экрана
 from instr import *
-fromsecond_win instr import *
-from PyQt5.QWidgets import QApplication, QWidgets, QLabel, QPushButton,QVBoxLayout
-class MainWin(QWidjet):
+from second_win import *
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton,QVBoxLayout
+class MainWin(QWidget):
     def __init__(self):
         super().__init__()
         self.set_appear()
@@ -13,7 +13,7 @@ class MainWin(QWidjet):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
-    def initUi(self):
+    def initUI(self):
         self.hello_label = QLabel(txt_hello)
         self.instruction_label = QLabel(txt_instruction)
         self.button = QPushButton(txt_name)
@@ -21,7 +21,7 @@ class MainWin(QWidjet):
         self.vlayout.addWidget(self.hello_label)
         self.vlayout.addWidget(self.instruction_label)
         self.vlayout.addWidget(self.button)
-        self.set_layout(self.vlayout)
+        self.setLayout(self.vlayout)
     def connects(self):
         self.button.clicked.connect(self.next_click)
     def next_click(self):
